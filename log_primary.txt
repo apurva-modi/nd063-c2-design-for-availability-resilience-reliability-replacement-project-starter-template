@@ -1,0 +1,49 @@
+[root@ip-10-1-10-48 ec2-user]# mysql -u admin -p -h udarr-1.cg5quzpsbtmj.us-east-1.rds.amazona
+ws.com
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 31
+Server version: 5.7.22-log Source distribution
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use udacity
+Database changed
+mysql> CREATE TABLE Student (
+    ->     UIN int,
+    ->     LastName varchar(255),
+    ->     FirstName varchar(255),
+    ->     Address varchar(255),
+    ->     City varchar(255),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to
+ your MySQL server version for the right syntax to use near ')' at line 7
+mysql> CREATE TABLE Student (     UIN int,     LastName varchar(255),     FirstName varchar(25
+5),     Address varchar(255),     City varchar(255) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO Students(UIN, LASTNAMR, FirstName, Address, City) 
+    -> Value(111, "Modi","Apurva","Foothill Ranch","CA");
+ERROR 1146 (42S02): Table 'udacity.Students' doesn't exist
+mysql> INSERT INTO Student(UIN, LASTNAMR, FirstName, Address, City)  Value(111, "Modi","Apurva
+","Foothill Ranch","CA");
+ERROR 1054 (42S22): Unknown column 'LASTNAMR' in 'field list'
+mysql> INSERT INTO Student(UIN, LASTName, FirstName, Address, City)  Value(111, "Modi","Apurva
+","Foothill Ranch","CA");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Select * from Student;
++------+----------+-----------+----------------+------+
+| UIN  | LastName | FirstName | Address        | City |
++------+----------+-----------+----------------+------+
+|  111 | Modi     | Apurva    | Foothill Ranch | CA   |
++------+----------+-----------+----------------+------+
+1 row in set (0.00 sec)
+
+mysql> 
