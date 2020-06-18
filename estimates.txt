@@ -1,0 +1,11 @@
+Estimate availability of this configuration
+Write a paragraph or two describing the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
+
+Minimum RTO for a single AZ outage
+- 45 minutes (As response time of support 15 minutes plus(+) backup retention time period is 30 minutes.)
+Minimum RTO for a single region outage
+- 1 hour (On-call support staff start diagnosing issue, so approx. 30 minutes for that plus(+) backup retention and promotion of replica will cost more 30 minutes.)
+Minimum RPO for a single AZ outage
+- 10 minutes (because failovers are in different availability zones.)
+Minimum RPO for a single region outage
+- 24 hours (because usually takes place every 24 hour.)
